@@ -1,0 +1,84 @@
+
+(rules PCB SLEDBoard
+  (snap_angle 
+    fortyfive_degree
+  )
+  (autoroute_settings
+    (fanout off)
+    (autoroute on)
+    (postroute on)
+    (vias on)
+    (via_costs 50)
+    (plane_via_costs 5)
+    (start_ripup_costs 100)
+    (start_pass_no 3805)
+    (layer_rule F.Cu
+      (active on)
+      (preferred_direction vertical)
+      (preferred_direction_trace_costs 1.0)
+      (against_preferred_direction_trace_costs 2.3)
+    )
+    (layer_rule B.Cu
+      (active on)
+      (preferred_direction horizontal)
+      (preferred_direction_trace_costs 1.0)
+      (against_preferred_direction_trace_costs 1.8)
+    )
+  )
+  (rule
+    (width 250.0)
+    (clear 200.2)
+    (clear 125.0 (type smd_to_turn_gap))
+    (clear 50.0 (type smd_smd))
+  )
+  (padstack "Via[0-1]_800:400_um"
+    (shape
+      (circle F.Cu 800.0 0.0 0.0)
+    )
+    (shape
+      (circle B.Cu 800.0 0.0 0.0)
+    )
+    (attach off)
+  )
+  (via 
+    "Via[0-1]_800:400_um" "Via[0-1]_800:400_um" default
+  )
+  (via 
+    "Via[0-1]_800:400_um-kicad_default" "Via[0-1]_800:400_um" "kicad_default"
+  )
+  (via_rule
+    default "Via[0-1]_800:400_um"
+  )
+  (via_rule
+    "kicad_default" "Via[0-1]_800:400_um-kicad_default"
+  )
+  (class default
+    (clearance_class default)
+    (via_rule default)
+    (rule
+      (width 250.0)
+    )
+    (circuit 
+      (use_layer F.Cu B.Cu)
+    )
+  )
+  (class "kicad_default"
+    /~Y0 "Net-(3SB1-Pad3)" /~Y1 "Net-(3SB1-Pad6)" GND "Net-(3SB1-Pad8)" /~Y4 "Net-(3SB1-Pad11)"
+    /~Y3 VDD /~Y7 "Net-(3SB2-Pad11)" "Net-(3SB2-Pad8)" "Net-(3SB2-Pad6)" /~Y6 "Net-(3SB2-Pad3)"
+    /~Y5 "Net-(D1-Pad2)" /~Y2 "Net-(DECODER1-Pad13)" "Net-(DECODER1-Pad14)" "Net-(DECODER1-Pad15)" "Net-(LED1-Pad5)" "Net-(LED1-Pad6)"
+    "Net-(LED1-Pad7)" "Net-(LED1-Pad8)" "Net-(LED1-Pad4)" "Net-(LED1-Pad3)" "Net-(LED1-Pad2)" "Net-(LED1-Pad1)" "Net-(LED2-Pad1)" "Net-(LED2-Pad2)"
+    "Net-(LED2-Pad3)" "Net-(LED2-Pad4)" "Net-(LED2-Pad8)" "Net-(LED2-Pad7)" "Net-(LED2-Pad6)" "Net-(LED2-Pad5)" "Net-(LED3-Pad2)" "Net-(LED3-Pad4)"
+    "Net-(LED3-Pad8)" "Net-(LED3-Pad6)" "Net-(LED4-Pad1)" "Net-(LED4-Pad3)" "Net-(LED4-Pad7)" "Net-(LED4-Pad5)" "Net-(LED5-Pad6)" "Net-(LED5-Pad8)"
+    "Net-(LED5-Pad4)" "Net-(LED5-Pad2)" "Net-(LED6-Pad5)" "Net-(LED6-Pad7)" "Net-(LED6-Pad3)" "Net-(LED6-Pad1)" "Net-(LED7-Pad2)" "Net-(LED7-Pad4)"
+    "Net-(LED7-Pad8)" "Net-(LED7-Pad6)" "Net-(LED10-Pad2)" "Net-(LED10-Pad4)" "Net-(LED10-Pad8)" "Net-(LED10-Pad6)" "Net-(LED10-Pad5)" "Net-(LED10-Pad7)"
+    "Net-(LED10-Pad3)" "Net-(LED10-Pad1)" "Net-(R1-Pad2)" "Net-(U10-PadINT)"
+    (clearance_class "kicad_default")
+    (via_rule kicad_default)
+    (rule
+      (width 250.0)
+    )
+    (circuit 
+      (use_layer F.Cu B.Cu)
+    )
+  )
+)

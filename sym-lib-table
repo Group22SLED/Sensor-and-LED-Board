@@ -1,0 +1,3 @@
+(sym_lib_table
+  (lib (name SLED)(type Legacy)(uri ${KIPRJMOD}/SLED.lib)(options "")(descr ""))
+)
